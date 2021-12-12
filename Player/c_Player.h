@@ -24,5 +24,15 @@ public:
 	{
 		return this->damage;
 	}
+
+	//hit enemy
+	void hit(c_Player* enemy) const;
+
+	//defend from enemy
+	void defend(const c_Player* enemy);
+
+
+	//run away from the enemy
+	void runAway();
 };
 

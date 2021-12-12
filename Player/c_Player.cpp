@@ -26,3 +26,24 @@ void c_Player::setDamage(int value)
 	if (value >= 0 && value <= 100)
 		this->damage = value;
 }
+
+void c_Player::hit(c_Player* enemy) const
+{
+	enemy->defend(this);
+}
+
+void c_Player::defend(const c_Player* enemy)
+{
+	this->health -= enemy->getDamage();
+	if (this->health < 0)
+		this->health = 0;
+}
+
+void c_Player::runAway()
+{
+	this->health--;
+	if (this->health < 0)
+		this->health = 0;
+
+	this->damage = 0;
+}
